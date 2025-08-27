@@ -1,12 +1,12 @@
 # Tailwind CSS Upgrade CLI
 
-A CLI tool to automatically upgrade Tailwind CSS from v3 to v4 across multiple projects.
+[![CI/CD Pipeline](https://github.com/Nilotpalchanda/ai-cli/actions/workflows/ci.yml/badge.svg)](https://github.com/Nilotpalchanda/ai-cli/actions/workflows/ci.yml)
+[![npm version](https://badge.fury.io/js/%40abc%2Ftailwind-upgrade-cli.svg)](https://badge.fury.io/js/%40abc%2Ftailwind-upgrade-cli)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Installation
+An industry-standard CLI tool to seamlessly upgrade Tailwind CSS from v3 to v4 across multiple projects with zero configuration.
 
-### Global Installation
-```bash
-npm install -g @abc/tailwind-upgrade-cli
+## ✨ Features
 # or
 pnpm install -g @abc/tailwind-upgrade-cli
 ```

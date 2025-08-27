@@ -1,9 +1,7 @@
-#!/usr/bin/env node
-
 import { Command } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
-import { upgradeTailwind } from './upgrade.js';
+import { upgradeTailwind } from './upgrade';
 
 const program = new Command();
 

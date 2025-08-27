@@ -1,31 +1,85 @@
 {
   "name": "@abc/tailwind-upgrade-cli",
   "version": "1.0.0",
-  "description": "CLI tool to upgrade Tailwind CSS from v3 to v4 across multiple projects",
+  "description": "Industry-standard CLI tool to upgrade Tailwind CSS from v3 to v4 across multiple projects",
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "bin": {
     "tailwind-upgrade": "./dist/index.js"
   },
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsx src/index.ts",
-    "start": "node dist/index.js"
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
   },
-  "keywords": ["tailwind", "upgrade", "cli", "automation"],
-  "author": "ABC Team",
+  "scripts": {
+    "build": "node build.js && tsc --emitDeclarationOnly",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run test && npm run lint"
+  },
+  "keywords": [
+    "tailwind",
+    "tailwindcss",
+    "upgrade",
+    "cli",
+    "automation",
+    "migration",
+    "v3-to-v4",
+    "postcss",
+    "typescript"
+  ],
+  "author": {
+    "name": "ABC Team",
+    "email": "team@abc.com"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nilotpalchanda/ai-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nilotpalchanda/ai-cli/issues"
+  },
+  "homepage": "https://github.com/Nilotpalchanda/ai-cli#readme",
   "dependencies": {
-    "commander": "^11.0.0",
+    "commander": "^11.1.0",
     "chalk": "^5.3.0",
     "ora": "^7.0.1",
-    "fs-extra": "^11.1.1",
+    "fs-extra": "^11.2.0",
     "glob": "^10.3.10"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.11.0",
     "@types/fs-extra": "^11.0.4",
-    "typescript": "^5.0.0",
-    "tsx": "^4.0.0"
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0",
+    "vitest": "^1.2.2",
+    "@vitest/coverage-v8": "^1.2.2"
   }
 }

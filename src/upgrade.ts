@@ -37,7 +37,10 @@ export async function upgradeTailwind(projectPath: string, spinner: Ora): Promis
   await updateGlobalsCss(projectPath, spinner);
 }
 
-async function modifyPackageJson(packageJsonPath: string, spinner: Ora): Promise<void> {
+async function modifyPackageJson(
+  packageJsonPath: string,
+  spinner: Ora
+): Promise<void> {
   try {
     const packageJson = await fs.readJson(packageJsonPath);
     let modified = false;
@@ -66,7 +69,10 @@ async function modifyPackageJson(packageJsonPath: string, spinner: Ora): Promise
   }
 }
 
-async function installPostcssPackage(projectPath: string, spinner: Ora): Promise<void> {
+async function installPostcssPackage(
+  projectPath: string,
+  spinner: Ora
+): Promise<void> {
   try {
     execSync('pnpm install @tailwindcss/postcss --save-dev', {
       cwd: projectPath,
@@ -92,7 +98,7 @@ async function handleDesignSystemPackage(packageJsonPath: string, projectPath: s
           stdio: 'pipe',
           shell: true
         } as any);
-        spinner.info(chalk.green('✅ Updated design-system to '));
+        spinner.info(chalk.green('✅ Updated design-system to 2.5.0'));
       } else {
         execSync('pnpm install design-system@latest --save', {
           cwd: projectPath,
